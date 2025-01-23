@@ -1,0 +1,12 @@
+import pickle
+
+# Try to load the 'polygons.txt' file
+try:
+    with open('polygons.txt', 'rb') as f:
+        posList = pickle.load(f)
+except FileNotFoundError:
+    print("polygons.txt file not found.")
+    posList = []  # Initialize as empty if the file is missing
+except pickle.UnpicklingError:
+    print("Error unpickling the polygons file. It might be corrupted.")
+    posList = []
